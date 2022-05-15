@@ -6,19 +6,17 @@ CREATE TABLE accompaniment_binary_archive (
 
 
 CREATE TABLE accompaniment (
-    id UUID NOT NULL,
+    id VARCHAR(16) NOT NULL,
     accompaniment_binary_id UUID NOT NULL,
     search_keyword TEXT UNIQUE NOT NULL,
     song_name VARCHAR(128) NOT NULL,
-    download_url VARCHAR(128),
     PRIMARY KEY (id)
 );
 
 CREATE TABLE accompaniment_search_history (
+    id UUID,
     search_keyword TEXT,
-    song_name VARCHAR(16),
-    song_url TEXT,
-    success boolean,
+    accompaniment_id VARCHAR(16),
     created_at timestamp default current_timestamp
 );
 

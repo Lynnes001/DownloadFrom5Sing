@@ -2,6 +2,7 @@ package com.song.demo.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,15 +16,16 @@ import java.util.UUID;
 @NoArgsConstructor
 public class AccompanimentBinaryArchive {
 
-    public AccompanimentBinaryArchive(byte[] accompaniment_binary){
+    public AccompanimentBinaryArchive(byte[] accompanimentBinary){
         this.id = UUID.randomUUID();
-        this.accompaniment_binary = accompaniment_binary;
+        this.accompanimentBinary = accompanimentBinary;
     }
 
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "id", columnDefinition = "uuid", nullable = false)
+    @Type(type="org.hibernate.type.PostgresUUIDType")
     private UUID id;
 
-    private byte[] accompaniment_binary;
+    private byte[] accompanimentBinary;
 
 }
