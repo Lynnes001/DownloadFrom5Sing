@@ -1,8 +1,8 @@
 version: '3.8'
 
 services:
-  postgres:
-    container_name: postgres_for_demo_app
+  postgres_for_download5sing:
+    container_name: postgres_for_download5sing
     image: postgres:12
     environment:
       POSTGRES_USER: postgres
